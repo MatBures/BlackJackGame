@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class DatabaseService {
     public List<Player> playingPlayer = new ArrayList<>();
+    public static String filePath = "src/main/resources/Database_of_players.txt";
 
     Scanner scanner = new Scanner(System.in);
 
@@ -22,7 +23,7 @@ public class DatabaseService {
         playingPlayer.add(player);
 
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Jakub\\eclipse-workspace\\BlackJackProject\\src\\main\\resources\\Database_of_players.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
             String line;
             boolean found = false;
             while ((line = reader.readLine()) != null) {
@@ -35,8 +36,8 @@ public class DatabaseService {
             }
             reader.close();
             if (!found) {
-                FileWriter writer = new FileWriter("C:\\Users\\Jakub\\eclipse-workspace\\BlackJackProject\\src\\main\\resources\\Database_of_players.txt", true);
-                writer.write("\n" + player.getFullName() + ", " + player.getPlayerTokens());
+                FileWriter writer = new FileWriter(filePath, true);
+                writer.write(player.getFullName() + ", " + player.getPlayerTokens() + "\n");
                 playingPlayer.add(player);
                 writer.close();
                 System.out.println("You was successfully added to the game. Good luck and have fun. You have \u001B[31m" + player.getPlayerTokens() + "\u001B[0m tokens in your bank.");

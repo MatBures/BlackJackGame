@@ -9,7 +9,7 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DatabaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DatabaseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TokenService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Database_of_players.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Database_of_players.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
