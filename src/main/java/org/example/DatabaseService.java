@@ -50,6 +50,9 @@ public class DatabaseService {
 
         }
     }
+    public void getAccountInfo () {
+        System.out.println("You have \u001B[31m" + playingPlayer.get(0).getPlayerTokens() + "\u001B[0m tokens in your bank.");
+    }
 }
 
 

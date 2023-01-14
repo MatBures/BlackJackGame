@@ -19,6 +19,12 @@ public class Player {
         return surName;
     }
 
+    public void addTokens(int tokens) {
+        this.playerTokens += tokens;
+    }
+    public void removeTokens(int tokens) {
+        this.playerTokens -= tokens;
+    }
 
     public int getPlayerTokens() {
         return playerTokens;
