@@ -1,4 +1,4 @@
-package org.example;
+package GameModels;
 
 public class Player {
     private String firstName;

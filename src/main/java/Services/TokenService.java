@@ -1,14 +1,18 @@
-package org.example;
+package Services;
+
+import GameModels.Player;
 
 import java.io.*;
 import java.util.Scanner;
 
-import static org.example.DatabaseService.filePath;
+import static Services.DatabaseService.filePath;
 
 public class TokenService {
     private Scanner scanner = new Scanner(System.in);
-    private DatabaseService database;
+    private DatabaseService database = new DatabaseService();
     private Scanner validateScanner = new Scanner(System.in);
+    private String separateBlock = "-----------------------------------";
+    private int bet;
 
     public void depositTokens() {
         System.out.println("How many tokens you want to deposit.");
@@ -84,5 +88,42 @@ public class TokenService {
         System.out.println("Invalid input. You need to write a number.");
         return getValidatedIntegerInput();
     }
+    public void placeABet() {
+        System.out.println("Lets get started." + "\n" + "Place your first bet. (Minimum is \033[31m10\033[0m)");
+        bet = getValidatedIntegerInput();
+        Player player = database.playingPlayer.get(0);
+        while (bet > player.getPlayerTokens() || bet < 10) {
+            if (player.getPlayerTokens() < 10) {
+                System.out.println("You don't have enough tokens for the minimum bet. Next time deposit tokens before trying to play. Bye!");
+                System.exit(0);
+            }
+            if(bet > player.getPlayerTokens()){
+                System.out.println("You don't have that many tokens to bet. Try again.");
+            }
+
+            if(bet < 10) {
+                System.out.println("Your bet is below minimum. (Minimum is \033[31m10\033[0m)");
+            }
+            bet = getValidatedIntegerInput();
+        }
+        System.out.println("Your first bet is " + "\u001B[31m" + bet + "\u001B[0m" + "\n" + separateBlock);
+
+    }
+    public void winTokens() {
+        Player player = database.playingPlayer.get(0);
+        System.out.println("You WIN " + "\u001B[31m" + bet + "\u001B[0m" + " tokens.");
+        player.addTokens(bet);
+        database.updatePlayerTokenCount(player);
+    }
+
+    public void loseTokens() {
+        Player player = database.playingPlayer.get(0);
+        System.out.println("You LOSE " + "\u001B[31m" + bet + "\u001B[0m" + " tokens.");
+        player.removeTokens(bet);
+        database.updatePlayerTokenCount(player);
+    }
 }
+
+
+
 

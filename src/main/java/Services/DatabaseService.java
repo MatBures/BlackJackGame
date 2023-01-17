@@ -1,11 +1,13 @@
-package org.example;
+package Services;
+
+import GameModels.Player;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-
 
 public class DatabaseService {
     public List<Player> playingPlayer = new ArrayList<>();
@@ -53,6 +55,23 @@ public class DatabaseService {
     }
     public void getAccountInfo () {
         System.out.println("You have \u001B[31m" + playingPlayer.get(0).getPlayerTokens() + "\u001B[0m tokens in your bank.");
+    }
+    public void updatePlayerTokenCount(Player player) {
+        try {
+            List<String> lines = Files.readAllLines(Paths.get(filePath));
+            for (int i = 0; i < lines.size(); i++) {
+                if (lines.get(i).startsWith(player.getFullName())) {
+                    // update the player's token count
+                    lines.set(i, player.getFullName() + ", " + player.getPlayerTokens());
+                    break;
+                }
+            }
+            // write the updated file
+            Files.write(Paths.get(filePath), lines);
+        } catch (IOException e) {
+            System.out.println("Some error occurred. Please call support.");
+
+        }
     }
 }
 

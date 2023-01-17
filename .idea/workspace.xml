@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31fc24e3-d7b4-4cb5-a9be-d88ea130854c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/GameModels/Cards.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/GameModels/Deck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DatabaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/DatabaseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TokenService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/DatabaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/DatabaseService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameModels/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/TokenService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Database_of_players.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Database_of_players.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,17 +39,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Jakub\eclipse-workspace\BlackJackProject\src\main\resources" />
