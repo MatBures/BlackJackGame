@@ -21,7 +21,7 @@ public class DatabaseService {
         String firstName = scanner.nextLine();
         System.out.println("Now enter your surname.");
         String surName = scanner.nextLine();
-        Player player = new Player(firstName, surName, 10);
+        Player player = new Player(firstName, surName, 100);
         playingPlayer.add(player);
 
         try {

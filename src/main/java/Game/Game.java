@@ -19,12 +19,15 @@ public class Game {
     private int dealersHandValue;
     private String separateBlock = "-----------------------------------";
 
+
     public Game(DatabaseService databaseService, TokenService tokenService) {
         this.databaseService = databaseService;
         this.tokenService = tokenService;
     }
 
     public void startGame() {
+        playersHand.clear();
+        dealersHand.clear();
         dealCards();
         if (checkIfPlayerHasBlackJackStartingHand()) {
             System.out.println(separateBlock);
@@ -34,11 +37,11 @@ public class Game {
 
         int option = tokenService.getValidatedIntegerInput();
         while(option<1 || option > 4) {
-            System.out.println("Wrong number. Please choose 1-4.");
+            System.out.println("Choose a number 1-4 for option.");
             option = tokenService.getValidatedIntegerInput();
+            System.out.println(separateBlock);
 
         }
-
             if (option == 1) {
                 stand();
 
@@ -48,23 +51,36 @@ public class Game {
 
             }
             if (option == 3) {
-                doubleDown();
+                if(tokenService.checkIfPlayerCanDoubleDown() == true) {
+                    doubleDown();
+                }
+                else {
+                    System.out.println("You have just these options:" + "\n" + "1) Stand" + "\n" + "2) Hit" + "\n" + "3) Surrender");
+                    option = tokenService.getValidatedIntegerInput();
+                while(option<1 || option > 3) {
 
+                }
+                if (option == 1) {
+                    stand();
+                }
+                if (option == 2) {
+                    hit();
+                }
+                if (option == 3) {
+                    surrender();
+                }
             }
+
             if (option == 4) {
                 surrender();
-
             }
         }
-
-    public void hit() {
-
     }
 
     public void stand() {
         System.out.println(separateBlock);
         System.out.println("Your hand: " + playersHand.get(0) + " / " + playersHand.get(1) + "." + " Your total hand value is " + playersHandValue);
-        System.out.println("Dealer's hand: " + dealersHand.get(0) +" / " + dealersHand.get(1) + "." + " Dealer's hand value is " + dealersHandValue);
+        System.out.println("Dealer's hand: " + dealersHand.get(0) +" / " + dealersHand.get(1) + "." + " Dealer's total hand value is " + dealersHandValue);
         while (dealersHandValue < 17) {
             Cards dealerCard = deck.dealCard();
             dealersHand.add(dealerCard);
@@ -83,16 +99,78 @@ public class Game {
             tokenService.loseTokens();
         }
         System.out.println(separateBlock);
-        playersHand.clear();
-        dealersHand.clear();
+
+    }
+
+    public void hit() {
+        int option;
+        System.out.println(separateBlock);
+        Cards playerCard = deck.dealCard();
+        playersHand.add(playerCard);
+        updatePlayersHandValue();
+        System.out.println("You draw another card: " + playerCard + ". Your total hand value is " + playersHandValue );
+        do {
+
+            if (playersHandValue > 21) {
+                System.out.println("Dealer's hand: " + dealersHand.get(0) +" / " + dealersHand.get(1) + "." + " Dealer's total hand value is " + dealersHandValue);
+                tokenService.loseTokens();
+                System.out.println(separateBlock);
+                return;
+            }
+            System.out.println("Press number 1 for one more hit" + "\n" + "Press number 2 for stand");
+            option = tokenService.getValidatedIntegerInput();
+            if(option ==1) {
+                Cards playerCards = deck.dealCard();
+                playersHand.add(playerCards);
+                updatePlayersHandValue();
+                System.out.println("You draw another card: " + playerCards + ". Your total hand value is " + playersHandValue );
+            }
+            else if (option ==2) {
+                stand();
+                break;
+            }
+            else{
+                System.out.println("You need to choose option 1 or 2.");
+            }
+        }while(true);
+
     }
 
     public void doubleDown() {
-
+        tokenService.checkIfPlayerCanDoubleDown();
+        System.out.println(separateBlock);
+        System.out.println("Your hand: " + playersHand.get(0) + " / " + playersHand.get(1) + "." + " Your total hand value is " + playersHandValue);
+        Cards playerCard = deck.dealCard();
+        playersHand.add(playerCard);
+        updatePlayersHandValue();
+        System.out.println("You draw another card: " + playerCard + ". Your total hand value is " + playersHandValue );
+        System.out.println("Dealer's hand: " + dealersHand.get(0) +" / " + dealersHand.get(1) + "." + " Dealer's total hand value is " + dealersHandValue);
+        while (dealersHandValue < 17) {
+            Cards dealerCard = deck.dealCard();
+            dealersHand.add(dealerCard);
+            updateDealersHandValue();
+            System.out.println("Dealer draws another card: " + dealerCard + ". Dealer's total hand value is " + dealersHandValue );
+        }
+        if (dealersHandValue > 21) {
+            tokenService.doubleDownWinTokens();
+        } else if (playersHandValue > 21) {
+            tokenService.doubleDownLoseTokens();
+        } else if (playersHandValue > dealersHandValue) {
+            tokenService.doubleDownWinTokens();
+        } else if (playersHandValue == dealersHandValue) {
+            System.out.println("It's a TIE.");
+        } else {
+            tokenService.doubleDownLoseTokens();
+        }
+        System.out.println(separateBlock);
     }
 
     public void surrender() {
-
+        System.out.println(separateBlock);
+        System.out.println("Your hand: " + playersHand.get(0) + " / " + playersHand.get(1) + "." + " Your total hand value is " + playersHandValue);
+        System.out.println("Dealer's hand: " + dealersHand.get(0) +" / " + dealersHand.get(1) + "." + " Dealer's total hand value is " + dealersHandValue);
+        tokenService.surrenderLoseTokens();
+        System.out.println(separateBlock);
     }
 
     public void dealCards() {

@@ -122,6 +122,35 @@ public class TokenService {
         player.removeTokens(bet);
         database.updatePlayerTokenCount(player);
     }
+    public void surrenderLoseTokens() {
+        Player player = database.playingPlayer.get(0);
+        System.out.println("You LOSE " + "\u001B[31m" + bet/2 + "\u001B[0m" + " tokens.");
+        player.removeTokens(bet);
+        database.updatePlayerTokenCount(player);
+
+    }
+    public void doubleDownWinTokens() {
+        Player player = database.playingPlayer.get(0);
+        System.out.println("You WIN " + "\u001B[31m" + 2*bet + "\u001B[0m" + " tokens.");
+        player.addTokens(bet);
+        database.updatePlayerTokenCount(player);
+    }
+
+    public void doubleDownLoseTokens() {
+        Player player = database.playingPlayer.get(0);
+        System.out.println("You LOSE " + "\u001B[31m" + 2*bet + "\u001B[0m" + " tokens.");
+        player.removeTokens(bet);
+        database.updatePlayerTokenCount(player);
+    }
+    public boolean checkIfPlayerCanDoubleDown() {
+        Player player = database.playingPlayer.get(0);
+        if (player.getPlayerTokens() >= bet*2) {
+            return true;
+        } else {
+            System.out.println("You don't have enough tokens to double down.");
+            return false;
+        }
+    }
 }
 
 

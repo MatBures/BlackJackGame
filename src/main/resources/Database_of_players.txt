@@ -1,7 +1,5 @@
-Marek Štych, 531
-Matyáš Bureš, 40
-Jakub Bureš, 10
-Romana Zumrová, 353
+Marek Štych, 150
+Matyáš Bureš, 300
+Jakub Bureš, 100
+Romana Zumrová, 305
 Filip Stárek, 70
-Robert Kladivo, 10
-
