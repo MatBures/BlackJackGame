@@ -9,12 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * DatabaseService class stands for loading user and getting user info.
+ */
 public class DatabaseService {
     public List<Player> playingPlayer = new ArrayList<>();
     public static String filePath = "src/main/resources/Database_of_players.txt";
 
     Scanner scanner = new Scanner(System.in);
 
+    //Method for loading user. User has to input firstName and surName. Then it's added to playingPlayer List (needed for more working through game).
+    //If user exists, the token count is loaded and the player is not added to Database_of_players.txt. If the player doesn't exist, then its written to Database_of_players.txt file.
     public void loadingUserService() {
         System.out.println("Welcome to Blackjack game.");
         System.out.println("Please enter your first name.");
@@ -53,26 +58,12 @@ public class DatabaseService {
 
         }
     }
+
+    //Method for showing account info of playing player.
     public void getAccountInfo () {
         System.out.println("You have \u001B[31m" + playingPlayer.get(0).getPlayerTokens() + "\u001B[0m tokens in your bank.");
     }
-    public void updatePlayerTokenCount(Player player) {
-        try {
-            List<String> lines = Files.readAllLines(Paths.get(filePath));
-            for (int i = 0; i < lines.size(); i++) {
-                if (lines.get(i).startsWith(player.getFullName())) {
-                    // update the player's token count
-                    lines.set(i, player.getFullName() + ", " + player.getPlayerTokens());
-                    break;
-                }
-            }
-            // write the updated file
-            Files.write(Paths.get(filePath), lines);
-        } catch (IOException e) {
-            System.out.println("Some error occurred. Please call support.");
 
-        }
-    }
 }
 
 

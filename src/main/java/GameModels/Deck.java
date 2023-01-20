@@ -1,9 +1,11 @@
 package GameModels;
 
-
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * Deck class holds generating deck method for playing blackjack and reset deck after each game.
+ */
 public class Deck {
     private ArrayList<Cards> cards;
 
@@ -12,10 +14,12 @@ public class Deck {
         generateDeck();
     }
 
+    //Method when game deals cards, each card is removed from deck. In game is only one specific card with RANK/SUIT.
     public Cards dealCard() {
         return cards.remove(0);
     }
 
+    //Method for generating deck when game starts.
     public void generateDeck() {
         for (String rank : Cards.RANKS) {
             for (String suit : Cards.SUITS) {
@@ -31,6 +35,12 @@ public class Deck {
             }
         }
         Collections.shuffle(cards);
+    }
+
+    //Method for resetting deck (each game start with all cards).
+    public void resetDeck() {
+        cards.clear();
+        generateDeck();
     }
 
 

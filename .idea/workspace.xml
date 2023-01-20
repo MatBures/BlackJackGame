@@ -8,6 +8,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameModels/Cards.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameModels/Cards.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameModels/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameModels/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/GameModels/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GameModels/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Services/DatabaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/DatabaseService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Services/TokenService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Services/TokenService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Database_of_players.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Database_of_players.txt" afterDir="false" />
