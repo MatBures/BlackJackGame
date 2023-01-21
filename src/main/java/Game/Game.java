@@ -276,11 +276,16 @@ public class Game {
         if (playersHandValue == 21) {
             if(dealersHandValue == 21){
                 System.out.println("both have BLACKJACK. no one wins.");
+                playersHand.clear();
+                dealersHand.clear();
+                deck.resetDeck();
             }
             else {
                 System.out.println("BLACKJACK. ");
                 tokenService.blackjackWinTokens();
-
+                playersHand.clear();
+                dealersHand.clear();
+                deck.resetDeck();
             }
             return true;
         }
