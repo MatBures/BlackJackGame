@@ -36,6 +36,14 @@ public class Game {
 
     //Method for starting a game. First is called dealCards method for dealing 2 and 2 cards for player and dealer.
     public void startGame() {
+
+        //At the start of each game program needs to clear playerHand and dealersHand.
+        //Then resetDeck method from Deck class is called for resetting all cards in deck.
+        playersHand.clear();
+        dealersHand.clear();
+        deck.resetDeck();
+
+        //Method for dealing cards to player and dealer.
         dealCards();
 
         //Checking if player has black jack starting hand by calling checkIfPLayerHasBlackJackStartingHand method.
@@ -85,11 +93,6 @@ public class Game {
             surrender();
         }
 
-        //After each game program needs to clear playerHand and dealersHand.
-        //Then resetDeck method from Deck class is called for resetting all cards in deck.
-        playersHand.clear();
-        dealersHand.clear();
-        deck.resetDeck();
     }
 
     //Method when player chooses stand option.
@@ -274,18 +277,12 @@ public class Game {
     //Method for checking if player has blackjack in starting hand.
     public boolean checkIfPlayerHasBlackJackStartingHand() {
         if (playersHandValue == 21) {
-            if(dealersHandValue == 21){
+            if (dealersHandValue == 21) {
                 System.out.println("both have BLACKJACK. no one wins.");
-                playersHand.clear();
-                dealersHand.clear();
-                deck.resetDeck();
-            }
-            else {
+
+            } else {
                 System.out.println("BLACKJACK. ");
                 tokenService.blackjackWinTokens();
-                playersHand.clear();
-                dealersHand.clear();
-                deck.resetDeck();
             }
             return true;
         }
