@@ -1,5 +1,6 @@
 package Game;
 
+import Services.InputValidatorService;
 import Services.DatabaseService;
 import Services.TokenService;
 
@@ -17,7 +18,8 @@ public class Main {
         DatabaseService databaseService = new DatabaseService();
         TokenService tokenService = new TokenService(databaseService);
         Game game = new Game(databaseService, tokenService);
-        databaseService.loadingUserService();
+        databaseService.userLoginOrSignup();
+        InputValidatorService inputValidater = new InputValidatorService();
 
         //String repeatText holding text for choosing what options can player choose.
         String repeatText = "Choose a number for continue. " + "\n" + "1) Start a game" + "\n" + "2) Deposit tokens" + "\n" + "3) Withdraw tokens" + "\n" + "4) Account info" + "\n" + "5) Blackjack rules" + "\n" + "6) Exit program";
@@ -26,7 +28,7 @@ public class Main {
 
         //Do while loop with options.
         do {
-            option = tokenService.getValidatedIntegerInput();
+            option = inputValidater.getValidatedIntegerInput();
 
             //1. Option for starting a game.
             if (option == 1) {
@@ -49,7 +51,8 @@ public class Main {
 
             //4. Option for getting account info.
             else if (option == 4) {
-                databaseService.getAccountInfo();
+                databaseService.displayPlayerData();
+
                 System.out.println(repeatText);
             }
 
@@ -61,6 +64,7 @@ public class Main {
 
             //6. Option for exit program
             else if (option == 6) {
+
             }
 
             //When player inputs unknown option.

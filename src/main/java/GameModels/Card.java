@@ -4,19 +4,18 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Creating and setting Cards parameters.
+ * Card model.
  */
-public class Cards {
+public class Card {
     private String rank;
     private String suit;
     private int value;
 
-    public Cards(String rank, String suit) {
+    public Card(String rank, String suit) {
         this.rank = rank;
         this.suit = suit;
     }
 
-    //Made two lists for RANKS and SUITS of cards. Needed "parameters" for generating deck in Deck class.
     public static final List<String> RANKS = Arrays.asList("2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A");
     public static final List<String> SUITS = Arrays.asList("Hearts","Diamonds","Spades","Clubs");
 

@@ -1,8 +1,7 @@
 package GameModels;
 
 /**
- * Setting Player parameters, making getters and setters, toString, addTokens and removeTokens.
- * Needed for program working.
+ * Player Model constructor
  */
 public class Player {
     private String firstName;
